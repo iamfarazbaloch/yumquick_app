@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:yumquick_app/widgets/custom_button.dart';
-import 'package:yumquick_app/widgets/custom_text_field.dart';
 
-import 'forget_password_page.dart';
-import 'sign_up_page.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text_field.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class ForgetPasswordPage extends StatefulWidget {
+  const ForgetPasswordPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
         centerTitle: true,
         title: const Text(
-          'Login',
+          'Forgot Password',
           style: TextStyle(
             color: Colors.white,
             fontSize: 26,
@@ -48,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             const SizedBox(height: 40),
+
             Expanded(
               child: Container(
                 padding: const EdgeInsets.all(30),
@@ -64,10 +62,11 @@ class _LoginPageState extends State<LoginPage> {
 
                     children: [
                       const Text(
-                        'Welcome!',
+                        textAlign: TextAlign.center,
+                        'Forgot your password? It happens to the best of us. Just enter your registered email address below, and Follow the instructions in the email to securely create a new password and regain access to your account.',
                         style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                           color: Colors.black,
                         ),
                       ),
@@ -87,13 +86,42 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 14),
                       const Text(
-                        'Password',
+                        'New Password',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
                       ),
+                      const SizedBox(height: 14),
+                      CustomTextField(
+                        obscureText: !_isPasswordVisible,
+                        controller: passwordController,
+                        hintText: '********',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      const Text(
+                        'Confirm New Password',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 14),
                       CustomTextField(
                         obscureText: !_isPasswordVisible,
                         controller: passwordController,
@@ -113,86 +141,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder:
-                                      (context) => const ForgetPasswordPage(),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'Forget Password?',
-                              style: TextStyle(
-                                color: Colors.deepOrange,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                       const SizedBox(height: 60),
                       CustomButton(
-                        text: 'Login',
+                        text: 'Create Password',
                         textColor: Colors.white,
                         backgroundColor: Colors.deepOrange,
                       ),
                       SizedBox(height: 30),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'or login with',
-                            style: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset('assets/icons/fb.png'),
-                              SizedBox(width: 10),
-                              Image.asset('assets/icons/gl.png'),
-                            ],
-                          ),
-                          SizedBox(height: 18),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Don\'t have an account?'),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SignUpPage(),
-                                    ),
-                                  );
-                                },
-                                child: Text(
-                                  'Sign Up',
-                                  style: TextStyle(
-                                    color: Colors.deepOrange,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
