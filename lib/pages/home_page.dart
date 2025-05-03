@@ -91,24 +91,10 @@ class _HomePageState extends State<HomePage> {
                         children:
                             _categories.entries.map((entry) {
                               return Padding(
-                                padding: const EdgeInsets.only(right: 15),
+                                padding: const EdgeInsets.only(right: 30),
                                 child: Column(
                                   children: [
-                                    Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFF5CB58),
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      child: Center(
-                                        child: Image.asset(
-                                          entry.key,
-                                          width: 30,
-                                          height: 30,
-                                        ),
-                                      ),
-                                    ),
+                                    Center(child: Image.asset(entry.key)),
                                     const SizedBox(height: 8),
                                     Text(
                                       entry.value,
@@ -122,6 +108,29 @@ class _HomePageState extends State<HomePage> {
                               );
                             }).toList(),
                       ),
+                    ),
+                    Divider(color: Colors.yellow.shade100, thickness: 2),
+                    Row(
+                      children: [
+                        Text(
+                          'Best Seller',
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          'View all',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.deepOrange,
+                          ),
+                        ),
+                        Icon(Icons.arrow_forward_ios, color: Colors.deepOrange),
+                      ],
                     ),
                   ],
                 ),
