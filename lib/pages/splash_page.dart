@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yumquick_app/pages/onboarding_page.dart';
+import 'package:yumquick_app/pages/onboarding/onboarding_page1.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -16,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const OnboardingPage()),
+        MaterialPageRoute(builder: (context) => const OnboardingPage1()),
       );
     });
   }

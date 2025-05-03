@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:yumquick_app/widgets/onboarding_button.dart';
 // import 'package:smooth_page_indicator/smooth_page_indicator.dart'; // Uncomment if using it with PageController
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+class OnboardingPage2 extends StatefulWidget {
+  const OnboardingPage2({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  State<OnboardingPage2> createState() => _OnboardingPage2State();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingPage2State extends State<OnboardingPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         children: [
           // Background image
           SizedBox.expand(
-            child: Image.asset('assets/images/pizza.png', fit: BoxFit.cover),
+            child: Image.asset('assets/images/sweet.png', fit: BoxFit.cover),
           ),
 
           // White box at the bottom
@@ -36,10 +36,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset('assets/icons/1.png'),
+                  Image.asset('assets/icons/2.png'),
                   const SizedBox(height: 20),
                   const Text(
-                    'Order For Food',
+                    'Easy Payment',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
