@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yumquick_app/pages/contact_page.dart';
 import 'package:yumquick_app/pages/favorite_page.dart';
 import 'package:yumquick_app/pages/history_page.dart';
-import 'package:yumquick_app/pages/order_page.dart';
+import 'package:yumquick_app/pages/food_page.dart';
 import 'home_page.dart';
 
 class AppMainScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _AppMainScreenState extends State<AppMainScreen> {
 
   final List<Widget> pages = const [
     HomePage(),
-    OrderPage(),
+    FoodPage(),
     FavoritePage(),
     HistoryPage(),
     ContactPage(),

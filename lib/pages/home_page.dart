@@ -24,6 +24,11 @@ class _HomePageState extends State<HomePage> {
     'assets/images/berry.png',
   ];
 
+  final List<String> _recommendedItems = [
+    'assets/images/burgur.png',
+    'assets/images/roll.png',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,80 +92,111 @@ class _HomePageState extends State<HomePage> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      height: 100,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children:
-                            _categories.entries.map((entry) {
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 30),
-                                child: Column(
-                                  children: [
-                                    Center(child: Image.asset(entry.key)),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      entry.value,
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        height: 100,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children:
+                              _categories.entries.map((entry) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(right: 30),
+                                  child: Column(
+                                    children: [
+                                      Center(child: Image.asset(entry.key)),
+                                      const SizedBox(height: 8),
+                                      Text(
+                                        entry.value,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
+                                    ],
+                                  ),
+                                );
+                              }).toList(),
+                        ),
+                      ),
+                      Divider(color: Colors.yellow.shade100, thickness: 2),
+                      Row(
+                        children: const [
+                          Text(
+                            'Best Seller',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            'View all',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.deepOrange,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.deepOrange,
+                            size: 16,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        height: 120,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _bestSellers.length,
+                          separatorBuilder:
+                              (_, __) => const SizedBox(width: 18),
+                          itemBuilder: (context, index) {
+                            return Image.asset(
+                              _bestSellers[index],
+                              fit: BoxFit.contain,
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      _discountCard(),
+
+                      const SizedBox(height: 14),
+                      const Text(
+                        'Recommended ',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      GridView.count(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 18,
+                        mainAxisSpacing: 18,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        childAspectRatio: 1.2,
+                        children:
+                            _recommendedItems.map((item) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: Image.asset(item, fit: BoxFit.cover),
                               );
                             }).toList(),
                       ),
-                    ),
-                    Divider(color: Colors.yellow.shade100, thickness: 2),
-                    Row(
-                      children: const [
-                        Text(
-                          'Best Seller',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Spacer(),
-                        Text(
-                          'View all',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.deepOrange,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.deepOrange,
-                          size: 16,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: 120,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _bestSellers.length,
-                        separatorBuilder: (_, __) => const SizedBox(width: 14),
-                        itemBuilder: (context, index) {
-                          return Image.asset(
-                            _bestSellers[index],
-                            fit: BoxFit.contain,
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    _discountCard(),
-                  ],
+
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
             ),
