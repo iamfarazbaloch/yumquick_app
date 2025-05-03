@@ -41,7 +41,7 @@ class OnboardingPage3 extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   const Text(
-                    'Craving something delicious? Get hot, fresh meals delivered straight to your doorstep. With just a tap, satisfy your hunger anytime, anywhere.',
+                    'Your payment details are securely processed, ensuring a smooth and safe transaction.Enjoy quick and reliable order processing from start to finish.',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16, color: Colors.black87),
                   ),

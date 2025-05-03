@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../login_signup_page.dart';
 import 'onboarding_page1.dart';
 import 'onboarding_page2.dart';
 import 'onboarding_page3.dart';
@@ -23,7 +24,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      // TODO: Navigate to home or main screen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginSignupPage()),
+      );
     }
   }
 
@@ -76,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onTap: nextPage,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
+                        horizontal: 80,
                         vertical: 14,
                       ),
                       decoration: BoxDecoration(
@@ -87,7 +91,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         currentIndex == 2 ? 'Get Started' : 'Next',
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

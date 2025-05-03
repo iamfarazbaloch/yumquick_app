@@ -40,7 +40,7 @@ class _SplashPageState extends State<SplashPage> {
                 Text(
                   'YUM',
                   style: TextStyle(
-                    color: Colors.red,
+                    color: Colors.redAccent,
                     fontSize: 34,
                     fontWeight: FontWeight.bold,
                     shadows: [
@@ -70,7 +70,7 @@ class _SplashPageState extends State<SplashPage> {
               ],
             ),
             const SizedBox(height: 30),
-            const CircularProgressIndicator(color: Colors.red),
+            const CircularProgressIndicator(color: Colors.redAccent),
           ],
         ),
       ),

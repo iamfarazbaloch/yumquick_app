@@ -46,7 +46,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                   ),
                   const SizedBox(height: 15),
                   const Text(
-                    'Craving something delicious? Get hot, fresh meals delivered straight to your doorstep. With just a tap, satisfy your hunger anytime, anywhere.',
+                    'Your payment information is encrypted to ensure maximum security.Fast, reliable, and hassle-free transactions every time.',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16, color: Colors.black87),
                   ),
