@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.only(left: 24, right: 20, top: 10),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'Best Seller',
                           style: TextStyle(
-                            fontSize: 26,
+                            fontSize: 20,
                             fontWeight: FontWeight.w500,
                             color: Colors.black,
                           ),
@@ -158,6 +158,8 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     ),
+                    const SizedBox(height: 20),
+                    _discountCard(),
                   ],
                 ),
               ),
@@ -178,6 +180,52 @@ class _HomePageState extends State<HomePage> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(child: Image.asset(imagePath, height: 24)),
+    );
+  }
+
+  Widget _discountCard() {
+    return SizedBox(
+      width: double.infinity,
+      height: 150,
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              'assets/images/card.png',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const Positioned(
+            top: 20,
+            left: 14,
+            child: Text(
+              textAlign: TextAlign.center,
+              'Experience our\nDelicious new dish',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const Positioned(
+            bottom: 30,
+            left: 24,
+            child: Text(
+              textAlign: TextAlign.center,
+              '30% off',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
