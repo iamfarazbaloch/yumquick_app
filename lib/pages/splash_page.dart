@@ -25,7 +25,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow.shade600,
+      backgroundColor: Colors.yellow.shade700,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
