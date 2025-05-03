@@ -3,7 +3,6 @@ import 'package:yumquick_app/pages/contact_page.dart';
 import 'package:yumquick_app/pages/favorite_page.dart';
 import 'package:yumquick_app/pages/history_page.dart';
 import 'package:yumquick_app/pages/order_page.dart';
-
 import 'home_page.dart';
 
 class AppMainScreen extends StatefulWidget {
@@ -23,36 +22,52 @@ class _AppMainScreenState extends State<AppMainScreen> {
     HistoryPage(),
     ContactPage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(index: currentIndex, children: pages),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 0,
-        currentIndex: currentIndex,
-        type: BottomNavigationBarType.fixed,
-        // backgroundColor: Colors.white,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey.shade300,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
-          ),
-        ],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.orangeAccent,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white70,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icons/home.png', height: 24),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icons/order.png', height: 24),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icons/fav.png', height: 24),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icons/time.png', height: 24),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/icons/contact.png', height: 24),
+              label: '',
+            ),
+          ],
+        ),
       ),
     );
   }
