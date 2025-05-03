@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yumquick_app/widgets/custom_button.dart';
 
+import 'login_page.dart';
+
 class LoginSignupPage extends StatelessWidget {
   const LoginSignupPage({super.key});
 
@@ -66,7 +68,12 @@ class LoginSignupPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               CustomButton(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
                 text: 'Login',
                 backgroundColor: Colors.yellow.shade400,
                 textColor: Colors.deepOrangeAccent,
