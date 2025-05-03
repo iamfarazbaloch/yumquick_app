@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yumquick_app/widgets/onboarding_button.dart';
 
 class OnboardingPage1 extends StatelessWidget {
   const OnboardingPage1({super.key});
@@ -46,10 +45,6 @@ class OnboardingPage1 extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16, color: Colors.black87),
                   ),
-                  const SizedBox(height: 30),
-
-                  SizedBox(height: 20),
-                  OnboardingButton(text: 'Next'),
                 ],
               ),
             ),

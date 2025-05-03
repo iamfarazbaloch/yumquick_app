@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class OnboardingPage2 extends StatefulWidget {
-  const OnboardingPage2({super.key});
+class OnboardingPage3 extends StatelessWidget {
+  const OnboardingPage3({super.key});
 
-  @override
-  State<OnboardingPage2> createState() => _OnboardingPage2State();
-}
-
-class _OnboardingPage2State extends State<OnboardingPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +10,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
         children: [
           // Background image
           SizedBox.expand(
-            child: Image.asset('assets/images/sweet.png', fit: BoxFit.cover),
+            child: Image.asset('assets/images/chai.png', fit: BoxFit.cover),
           ),
 
           // White box at the bottom
@@ -34,10 +29,10 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset('assets/icons/2.png'),
+                  Image.asset('assets/icons/3.png'),
                   const SizedBox(height: 20),
                   const Text(
-                    'Easy Payment',
+                    'Order For Food',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -50,6 +45,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16, color: Colors.black87),
                   ),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),
