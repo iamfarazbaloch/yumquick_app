@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yumquick_app/widgets/custom_button.dart';
 import 'package:yumquick_app/widgets/custom_text_field.dart';
 
+import 'sign_up_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -158,7 +160,14 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               Text('Don\'t have an account?'),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignUpPage(),
+                                    ),
+                                  );
+                                },
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(
