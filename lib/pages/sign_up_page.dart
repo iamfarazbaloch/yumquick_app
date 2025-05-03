@@ -51,7 +51,7 @@ class _SignUpPageState extends State<SignUpPage> {
             const SizedBox(height: 40),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
+                padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -77,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       CustomTextField(
                         obscureText: false,
                         controller: nameController,
-                        hintText: 'John Doe',
+                        hintText: 'Your Name',
                       ),
                       const SizedBox(height: 14),
                       const Text(
