@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yumquick_app/pages/app_main_screen.dart';
 import 'package:yumquick_app/widgets/custom_button.dart';
 import 'package:yumquick_app/widgets/custom_text_field.dart';
 
@@ -143,6 +144,14 @@ class _LoginPageState extends State<LoginPage> {
                         text: 'Login',
                         textColor: Colors.white,
                         backgroundColor: Colors.deepOrange,
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AppMainScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 30),
                       Column(
@@ -173,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                               Text('Don\'t have an account?'),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => SignUpPage(),

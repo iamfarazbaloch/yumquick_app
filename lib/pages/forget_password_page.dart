@@ -12,7 +12,9 @@ class ForgetPasswordPage extends StatefulWidget {
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController newPasswordController = TextEditingController();
+  final TextEditingController newConfirmPasswordController =
+      TextEditingController();
   bool _isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -96,7 +98,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                       const SizedBox(height: 14),
                       CustomTextField(
                         obscureText: !_isPasswordVisible,
-                        controller: passwordController,
+                        controller: newPasswordController,
                         hintText: '********',
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -124,7 +126,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                       SizedBox(height: 14),
                       CustomTextField(
                         obscureText: !_isPasswordVisible,
-                        controller: passwordController,
+                        controller: newConfirmPasswordController,
                         hintText: '********',
                         suffixIcon: IconButton(
                           icon: Icon(
