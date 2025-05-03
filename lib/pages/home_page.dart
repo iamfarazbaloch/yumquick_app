@@ -9,6 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final Map<String, String> _categories = {
+    'assets/icons/snacks.png': 'Snacks',
+    'assets/icons/meal.png': 'Meals',
+    'assets/icons/veagan.png': 'Dinner',
+    'assets/icons/drinks.png': 'Drinks',
+    'assets/icons/dessert.png': 'Dessert',
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,28 +37,20 @@ class _HomePageState extends State<HomePage> {
                           hintText: 'Search',
                           suffixIcon: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Container(
-                              width: 50,
-
-                              decoration: BoxDecoration(
-                                color: Colors.deepOrange,
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              child: Image.asset('assets/icons/menu.png'),
-                            ),
+                            child: Icon(Icons.menu, color: Colors.deepOrange),
                           ),
                         ),
                       ),
                       const SizedBox(width: 20),
                       _customButton('assets/icons/cart.png'),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _customButton('assets/icons/notification.png'),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _customButton('assets/icons/person.png'),
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Text(
+                  const Text(
                     'Good Morning,',
                     style: TextStyle(
                       fontSize: 30,
@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    'Rise and Shine! Its breakfast time',
+                  const Text(
+                    'Rise and Shine! It\'s breakfast time',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.deepOrange,
@@ -80,7 +80,51 @@ class _HomePageState extends State<HomePage> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: Column(children: []),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 100,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children:
+                            _categories.entries.map((entry) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 15),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 60,
+                                      height: 60,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFF5CB58),
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      child: Center(
+                                        child: Image.asset(
+                                          entry.key,
+                                          width: 30,
+                                          height: 30,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      entry.value,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -91,7 +135,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _customButton(String imagePath) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       width: 50,
       height: 50,
       decoration: BoxDecoration(
