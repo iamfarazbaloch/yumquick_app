@@ -17,6 +17,13 @@ class _HomePageState extends State<HomePage> {
     'assets/icons/dessert.png': 'Dessert',
   };
 
+  final List<String> _bestSellers = [
+    'assets/images/sushi.png',
+    'assets/images/rice.png',
+    'assets/images/egg.png',
+    'assets/images/berry.png',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     SizedBox(
                       height: 100,
                       child: ListView(
@@ -111,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Divider(color: Colors.yellow.shade100, thickness: 2),
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           'Best Seller',
                           style: TextStyle(
@@ -129,8 +136,27 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.deepOrange,
                           ),
                         ),
-                        Icon(Icons.arrow_forward_ios, color: Colors.deepOrange),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.deepOrange,
+                          size: 16,
+                        ),
                       ],
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 120,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: _bestSellers.length,
+                        separatorBuilder: (_, __) => const SizedBox(width: 14),
+                        itemBuilder: (context, index) {
+                          return Image.asset(
+                            _bestSellers[index],
+                            fit: BoxFit.contain,
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
