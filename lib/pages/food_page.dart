@@ -10,6 +10,17 @@ class FoodPage extends StatefulWidget {
 class _FoodPageState extends State<FoodPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: [const SizedBox(height: 40)]));
+    return Scaffold(
+      body: Column(
+        children: [
+          const SizedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text('Food'), Icon(Icons.food_bank_outlined)],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
